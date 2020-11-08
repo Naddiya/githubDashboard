@@ -15,4 +15,5 @@ yarn start
 enter your personal access token (*)
 ```
 GO !
+>
 (*) To create your github token go to <https://github.com/settings/tokens>
