@@ -4,8 +4,9 @@
 import React, { Component } from 'react';
 import {
   Segment,
-  Header as Headersemantic,
+  Header as HeaderSemanticUi,
   Menu,
+  Icon,
 } from 'semantic-ui-react';
 
 import { NavLink } from 'react-router-dom';
@@ -13,7 +14,7 @@ import { NavLink } from 'react-router-dom';
 /**
  * Local import
  */
-
+import '../../styles/_vars.scss';
 /**
  * Component
  */
@@ -29,35 +30,41 @@ class Header extends Component {
     const { activeItem } = this.state;
 
     return (
-      <Headersemantic>
-        <Segment inverted>
-          <Menu inverted secondary>
-            <Menu.Item
-              name="Home"
-              active={activeItem === 'Home'}
-              onClick={this.handleItemClick}
-              as={NavLink}
-              exact
-              to="/"
-            />
-            <Menu.Item
+      <Segment inverted>
+        <HeaderSemanticUi as="h1" textAlign="center" inverted color="olive" icon>
+          <Icon name="github" />
+            Github Dashboard
+          <HeaderSemanticUi.Subheader>
+            Powered by  Nadia M
+          </HeaderSemanticUi.Subheader>
+        </HeaderSemanticUi>
+
+        <Menu inverted secondary>
+          <Menu.Item
+            name="Home"
+            active={activeItem === 'Home'}
+            onClick={this.handleItemClick}
+            as={NavLink}
+            exact
+            to="/"
+          />
+          {/* <Menu.Item
               name="search"
-              active={activeItem === 'Search'}
+              active={activeItem === "Search"}
               onClick={this.handleItemClick}
               as={NavLink}
               to="/search"
-            />
-            <Menu.Item
-              name="About"
-              active={activeItem === 'About'}
-              onClick={this.handleItemClick}
-              as={NavLink}
-              to="/about"
-            />
-          </Menu>
-        </Segment>
+            /> */}
+          <Menu.Item
+            name="About"
+            active={activeItem === 'About'}
+            onClick={this.handleItemClick}
+            as={NavLink}
+            to="/about"
+          />
+        </Menu>
+      </Segment>
 
-      </Headersemantic>
     );
   }
 }

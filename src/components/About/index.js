@@ -2,7 +2,9 @@
  * Npm import
  */
 import React from 'react';
-import { Segment, Header, Image } from 'semantic-ui-react';
+import {
+  Segment, Header, Image, Dropdown, Divider,
+} from 'semantic-ui-react';
 
 /**
  * Local import
@@ -11,20 +13,35 @@ import { Segment, Header, Image } from 'semantic-ui-react';
 /**
  * Component
  */
+const languageOptions = [
+  { key: 'English', text: 'English', value: 'English' },
+  { key: 'French', text: 'French', value: 'French' },
+  { key: 'Klingon', text: 'Klingon', value: 'Klingon' },
+];
+
 const About = () => (
   <Segment className="about">
     <Header as="h2"> About </Header>
+    <Image
+      rounded
+      src="https://vignette.wikia.nocookie.net/alienfilm/images/5/50/Martians_%28Mars_Attacks%21%29.jpg/revision/latest?cb=20140812142712"
+      fluid
+    />
     <Segment>
-      <Image
-        rounded
-        src="https://vignette.wikia.nocookie.net/alienfilm/images/5/50/Martians_%28Mars_Attacks%21%29.jpg/revision/latest?cb=20140812142712"
-        fluid
-      />
-    </Segment>
-    <Segment className="english">
       <Header as="h3"> Who am I ? </Header>
+      <Dropdown
+        button
+        compact
+        className="icon"
+        labeled
+        icon="world"
+        options={languageOptions}
+        search
+        text="Select Language"
+      />
+      <Divider />
       <p>
-        My name is Nadia, I 'm a fourty year affable person. Formaly I was a
+        My name is Nadia, I 'm a fourty year old affable person. Formaly I was a
         jwellery artist and had no higher education degree.
       </p>
       <p>
@@ -34,9 +51,8 @@ const About = () => (
         succeeded and got graduated.
       </p>
       <p>
-        Now I'm a passionate web developper looking for a front-end job.
-        I can work from home, as I have a very confortable set-up in my
-        basement.
+        Now I'm a passionate web developper looking for a front-end job. I can
+        work from home, as I have a very confortable set-up in my basement.
       </p>
 
       <p>
