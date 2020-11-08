@@ -7,15 +7,16 @@ import { Route, Switch } from 'react-router-dom';
 /**
  * Local import
  */
+
 import About from 'src/components/About';
-import Welcome from 'src/components/Welcome';
+import Home from 'src/components/Home';
 
 /**
  * Component
  */
 const Page = () => (
   <Switch>
-    <Route path="/" exact component={Welcome} />
+    <Route path="/" exact component={Home} />
     <Route path="/about" component={About} />
   </Switch>
 );

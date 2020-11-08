@@ -1,10 +1,13 @@
 /**
  * Npm import
  */
-import React from 'react';
+import React, { Component } from 'react';
 import {
-  Segment, Header as HeaderSemanticUi, Icon, Menu,
+  Segment,
+  Header as Headersemantic,
+  Menu,
 } from 'semantic-ui-react';
+
 import { NavLink } from 'react-router-dom';
 
 /**
@@ -14,27 +17,50 @@ import { NavLink } from 'react-router-dom';
 /**
  * Component
  */
-const Header = () => (
-  <Segment inverted>
-    <HeaderSemanticUi as="h1" textAlign="center" icon>
-      <Icon name="dashboard" />
-      <Icon name="github" />
-        Github Dashboard
-      <HeaderSemanticUi.Subheader>
-        Coded by Nadia MZ
-      </HeaderSemanticUi.Subheader>
-    </HeaderSemanticUi>
-    <Menu color="yellow" inverted>
-      <Menu.Item as={NavLink} exact to="/" name="welcome" />
-      <Menu.Item as={NavLink} to="/about" name="About" />
+class Header extends Component {
+  // eslint-disable-next-line react/state-in-constructor
+  state = {
+    activeItem: this.item,
+  };
 
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name });
 
-    </Menu>
+  render() {
+    const { activeItem } = this.state;
 
-  </Segment>
+    return (
+      <Headersemantic>
+        <Segment inverted>
+          <Menu inverted secondary>
+            <Menu.Item
+              name="Home"
+              active={activeItem === 'Home'}
+              onClick={this.handleItemClick}
+              as={NavLink}
+              exact
+              to="/"
+            />
+            <Menu.Item
+              name="search"
+              active={activeItem === 'Search'}
+              onClick={this.handleItemClick}
+              as={NavLink}
+              to="/search"
+            />
+            <Menu.Item
+              name="About"
+              active={activeItem === 'About'}
+              onClick={this.handleItemClick}
+              as={NavLink}
+              to="/about"
+            />
+          </Menu>
+        </Segment>
 
-);
-
+      </Headersemantic>
+    );
+  }
+}
 
 /**
  * Export
