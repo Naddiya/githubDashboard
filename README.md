@@ -13,7 +13,6 @@ Here's a tool to manage github with a customised interface.
 yarn
 yarn start
 enter your personal access token (*)
-Ready for action !
 ```
-
+GO !
 (*) To create your github token go to <https://github.com/settings/tokens>
