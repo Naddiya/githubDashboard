@@ -1,75 +1,31 @@
-/**
- * Npm import
- */
-import React, { Component } from 'react';
+import React from 'react';
 import {
-  Segment,
-  Header as HeaderSemanticUi,
-  Menu,
-  Icon,
+  Header as HeaderSemanticUi, Icon, Segment, Menu,
 } from 'semantic-ui-react';
-
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-/**
- * Local import
- */
-import '../../styles/_vars.scss';
-/**
- * Component
- */
-class Header extends Component {
-  // eslint-disable-next-line react/state-in-constructor
-  state = {
-    activeItem: this.item,
-  };
+const Header = ({ logged }) => (
+  <Segment inverted>
+    <HeaderSemanticUi as="h1" textAlign="center" inverted color="olive" icon>
+      <Icon name="github" />
+        Github Dashboard
+        <HeaderSemanticUi.Subheader>
+        Powered by Nadia M.
+      </HeaderSemanticUi.Subheader>
+    </HeaderSemanticUi>
+    <Menu inverted secondary>
+      <Menu.Item as={NavLink} exact to="/" name="Login" />
+      {logged && (
+        <Menu.Item as={NavLink} to="/search" name="Search" />
+      )}
+      <Menu.Item as={NavLink} to="/about" name="About" />
+    </Menu>
+  </Segment>
+);
 
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name });
+Header.propTypes = {
+  logged: PropTypes.bool.isRequired,
+};
 
-  render() {
-    const { activeItem } = this.state;
-
-    return (
-      <Segment inverted>
-        <HeaderSemanticUi as="h1" textAlign="center" inverted color="olive" icon>
-          <Icon name="github" />
-            Github Dashboard
-          <HeaderSemanticUi.Subheader>
-            Powered by  Nadia M
-          </HeaderSemanticUi.Subheader>
-        </HeaderSemanticUi>
-
-        <Menu inverted secondary>
-          <Menu.Item
-            name="Home"
-            active={activeItem === 'Home'}
-            onClick={this.handleItemClick}
-            as={NavLink}
-            exact
-            to="/"
-          />
-          {/* <Menu.Item
-              name="search"
-              active={activeItem === "Search"}
-              onClick={this.handleItemClick}
-              as={NavLink}
-              to="/search"
-            /> */}
-          <Menu.Item
-            name="About"
-            active={activeItem === 'About'}
-            onClick={this.handleItemClick}
-            as={NavLink}
-            to="/about"
-          />
-        </Menu>
-      </Segment>
-
-    );
-  }
-}
-
-/**
- * Export
- */
 export default Header;

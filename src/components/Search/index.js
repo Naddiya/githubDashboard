@@ -1,27 +1,19 @@
-/**
- * Npm import
- */
+// == Import : npm
 import React from 'react';
-import { Input, Form } from 'semantic-ui-react';
+import { Segment, Header } from 'semantic-ui-react';
 
-/**
- * Local import
- */
+// == Import : local
+import ReposResults from 'src/containers/ReposResults';
+import SearchBar from './SearchBar';
 
-/**
- * Component
- */
+// == Composant
 const Search = () => (
-  <>
-    <Form>
-      <Form.Field>
-        <Input icon="search" fluid inverted placeholder="Entrez la recherche" />
-      </Form.Field>
-    </Form>
-  </>
+  <Segment>
+    <Header as="h2">Search</Header>
+    <SearchBar inputValue="Lorem ipsum" loading={false} doSearch={() => {}} changeInputValue={() => {}} />
+    <ReposResults />
+  </Segment>
 );
 
-/**
- * Export
- */
+// == Export
 export default Search;

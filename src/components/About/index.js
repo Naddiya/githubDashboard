@@ -41,20 +41,15 @@ const About = () => (
       />
       <Divider />
       <p>
-        My name is Nadia, I 'm a fourty year old affable person. Formaly I was a
-        jwellery artist and had no higher education degree.
+        My name is Nadia, I'm a passionate web developper looking for a front-end position.
+         Formaly I was a jwellery artist and had no higher education degree.
       </p>
       <p>
-        I've learned web developpement at O'Clock's school witch I believe is
+        I've learned web developpement at O'Clock school witch I believe is
         the best school ever ! I was studying from home in a virtual classroom
         with nineteen other students. Thought it was a challenging bootcamp, I
         succeeded and got graduated.
       </p>
-      <p>
-        Now I'm a passionate web developper looking for a front-end job. I can
-        work from home, as I have a very confortable set-up in my basement.
-      </p>
-
       <p>
         That experience made me totally confortable with remote working,
         collaboration and organisation.So don't hesitate to hire me, I can work

@@ -1,34 +1,27 @@
-/**
- * Npm import
- */
+// == Import : npm
 import React from 'react';
 import { render } from 'react-dom';
+import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 
-/**
- * Local import
- */
+// == Import : local
 import App from 'src/components/App';
+import store from 'src/store';
 
-/**
- * Style
- */
 import 'semantic-ui-css/semantic.min.css';
 
-/**
- * Component
- */
+// == Render
+// 1. Le composant racine (celui qui contient l'ensemble de l'app)
 const rootComponent = (
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>
-
+  <Provider store={store}>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </Provider>
 );
-/**
- * Target
- */
+
+// 2. La cible du DOM (là où la structure doit prendre vie dans le DOM)
 const target = document.getElementById('root');
-/**
- * Export
- */
+
+// Le rendu de React => DOM
 render(rootComponent, target);

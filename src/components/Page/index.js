@@ -1,27 +1,33 @@
-/**
- * NPM import
- */
+// == Import : npm
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-/**
- * Local import
- */
-
+// == Import : local
+import Userhome from 'src/containers/Userhome';
+import Search from 'src/components/Search';
 import About from 'src/components/About';
-import Home from 'src/components/Home';
+import Login from 'src/containers/Login';
+import Error from './Error';
 
-/**
- * Component
- */
-const Page = () => (
+// == Composant
+const Page = ({ logged }) => (
   <Switch>
-    <Route path="/" exact component={Home} />
-    <Route path="/about" component={About} />
+    <Route path="/" exact component={logged ? Userhome : Login} />
+    {logged && (
+      <Route path="/search" exact component={Search} />
+    )}
+    {!logged && (
+      <Redirect from="/search" to="/" />
+    )}
+    <Route path="/about" exact component={About} />
+    <Route component={Error} />
   </Switch>
 );
 
-/**
- * Export
- */
+Page.propTypes = {
+  logged: PropTypes.bool.isRequired,
+};
+
+// == Export
 export default Page;

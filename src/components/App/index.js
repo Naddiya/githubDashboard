@@ -1,18 +1,12 @@
-/**
- * Npm import
- */
+// == Import : npm
 import React from 'react';
 import { Container } from 'semantic-ui-react';
 
-/**
- * Local import
- */
-import Header from 'src/components/Header';
-import Page from 'src/components/Page';
+// == Import : local
+import Header from 'src/containers/Header';
+import Page from 'src/containers/Page';
 
-/**
- * Component
- */
+// == Composant
 const App = () => (
   <Container>
     <Header />
@@ -20,7 +14,5 @@ const App = () => (
   </Container>
 );
 
-/**
- * Export
- */
+// == Export
 export default App;
