@@ -1,4 +1,4 @@
-# Github Dashbord
+# Github Dashbord :octocat:
 
 Here's a tool to manage github with a customised interface.
 
